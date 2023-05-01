@@ -42,26 +42,3 @@ jobs:
         name: Windows-Installer
         path: dist/*.exe
         if-no-files-found: error
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1.2.5
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-          tag_name: v${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Novidades nesta versão:
-            - Mudei o nome da intro heheheheh...
-          draft: false
-          prerelease: false
-    - name: Upload Release Asset
-      id: upload-release-asset
-      uses: actions/upload-release-asset@v1.0.1
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/*.zip # caminho para o seu arquivo compilado
-          asset_name: mao-fantasma.zip # nome do seu arquivo compilado
-          asset_content_type: application/zip # tipo MIME do seu arquivo
