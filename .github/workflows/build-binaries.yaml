@@ -127,7 +127,7 @@ jobs:
         if-no-files-found: error
 
   build-windows:
-    runs-on: windows-latest
+    runs-on: windows-2019-vs2019
     steps:
     - uses: actions/checkout@v1
     - name: Get npm cache directory
@@ -147,20 +147,15 @@ jobs:
         # https://github.com/electron/get#how-it-works
         path: ~/AppData/Local/electron/Cache
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-    - name: Set process env
-      run: |
-        echo "process.env = Object.assign(process.env, {npm_config_ignore_scripts: true})" >> $GITHUB_ENV
-    - name: Set npm env
-      run: |
-        echo "npm_config_nodedir=$(node -p 'path.dirname(process.execPath)')" >> $GITHUB_ENV
-    - name: Set MSVS version
-      run: echo "npm_config_msvs_version=2022" >> $GITHUB_ENV
     - name: Setup Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
-        node-version: 14
+        node-version: '14.x'
     - name: Setup npm
       run: npm i -g npm@7
+    - name: Install Visual Studio Build Tools
+      run: |
+        npm install --global --production windows-build-tools
     - name: npm install
       run: npm install
     - name: npm build
