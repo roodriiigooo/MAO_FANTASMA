@@ -147,6 +147,8 @@ jobs:
         # https://github.com/electron/get#how-it-works
         path: ~/AppData/Local/electron/Cache
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+    - name: VCINSTALLDIR
+      run: set VCINSTALLDIR=\"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\"
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
