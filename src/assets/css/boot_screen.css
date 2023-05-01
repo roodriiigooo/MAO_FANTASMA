@@ -50,7 +50,7 @@ section#boot_screen h1.glitch {
 }
 
 section#boot_screen h1::before {
-    content: "MÃO FANTASMA OS";
+    content: "MÃO FANTASMA";
     display: block;
     transform: translateY(100%) translateX(-2%);
     clip-path: polygon(100% 0%, 100% 40%, 0% 40%, 0% 0%);
