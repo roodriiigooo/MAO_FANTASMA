@@ -151,6 +151,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14
+    - name: Setup Windows Tools
+      run: npm i -g windows-build-tools
     - name: Setup npm
       run: npm i -g npm@7
     - name: npm install
