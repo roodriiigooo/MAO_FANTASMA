@@ -151,10 +151,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14
-    - name: Setup Windows Tools
-      run: npm install --global --production windows-build-tools@4.0.0
-    - name: Set VS 2022
-      run: npm config set msvs_version 2022 --global
     - name: Setup npm
       run: npm i -g npm@7
     - name: npm install
