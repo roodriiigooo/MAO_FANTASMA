@@ -1,3 +1,13 @@
+
+#A TAL DA MÃO FANTASMA
+Pra você hackear o seu coleguinha e ganhar dinheiro, porque hacker hackeia kkkkk
+
+
+
+
+### Uma fork do projeto
+
+
 <p align="center">
   <br>
   <img alt="Logo" src="media/logo.png">
