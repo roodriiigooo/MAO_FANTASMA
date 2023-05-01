@@ -7,6 +7,7 @@ Pra você hackear o seu coleguinha e ganhar dinheiro, porque hacker hackeia kkkk
 
 ### Uma fork do projeto
 
+Projeto original [aqui](https://github.com/GitSquared/edex-ui/)
 
 <p align="center">
   <br>
