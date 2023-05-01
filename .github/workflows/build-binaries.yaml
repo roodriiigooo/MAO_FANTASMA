@@ -147,6 +147,12 @@ jobs:
         # https://github.com/electron/get#how-it-works
         path: ~/AppData/Local/electron/Cache
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+    - name: Set process env
+      run: |
+        echo "process.env = Object.assign(process.env, {npm_config_ignore_scripts: true})" >> $GITHUB_ENV
+    - name: Set npm env
+      run: |
+        echo "npm_config_nodedir=$(node -p 'path.dirname(process.execPath)')" >> $GITHUB_ENV
     - name: Install Visual Studio Build Tools
       run: npm install --global --production windows-build-tools
     - name: Set MSVS version
