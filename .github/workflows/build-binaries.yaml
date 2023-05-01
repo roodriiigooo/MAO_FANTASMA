@@ -152,7 +152,7 @@ jobs:
       with:
         node-version: 14
     - name: Setup Windows Tools
-      run: npm i -g windows-build-tools
+      run: npm install --global --production windows-build-tools --vs2015.
     - name: Setup npm
       run: npm i -g npm@7
     - name: npm install
