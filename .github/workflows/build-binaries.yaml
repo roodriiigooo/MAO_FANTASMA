@@ -147,14 +147,10 @@ jobs:
         # https://github.com/electron/get#how-it-works
         path: ~/AppData/Local/electron/Cache
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-    - name: Setup VS
-      uses: warrenbuckley/Setup-MSBuild@v1
-      env: 
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-    - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.1
-    - name: ENV
-      run: set PATH=\"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\"
+    - name: Install Visual Studio Build Tools
+      run: npm install --global --production windows-build-tools
+    - name: Set MSVS version
+      run: echo "npm_config_msvs_version=2022" >> $GITHUB_ENV
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
