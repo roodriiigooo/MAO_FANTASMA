@@ -42,3 +42,13 @@ jobs:
         name: Windows-Installer
         path: dist/*.exe
         if-no-files-found: error
+    - name: Criar Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          Novidades nesta versão:
+          - Mudei o nome da intro heheheheh...
