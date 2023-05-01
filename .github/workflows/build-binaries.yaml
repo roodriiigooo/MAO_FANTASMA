@@ -149,6 +149,8 @@ jobs:
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
     - name: Setup VS2019
       uses: warrenbuckley/Setup-MSBuild@v1
+      env: 
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
