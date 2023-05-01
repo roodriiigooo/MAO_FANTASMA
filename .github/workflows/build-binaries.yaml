@@ -153,8 +153,6 @@ jobs:
     - name: Set npm env
       run: |
         echo "npm_config_nodedir=$(node -p 'path.dirname(process.execPath)')" >> $GITHUB_ENV
-    - name: Install Visual Studio Build Tools
-      run: npm install --global --production windows-build-tools
     - name: Set MSVS version
       run: echo "npm_config_msvs_version=2022" >> $GITHUB_ENV
     - name: Setup Node.js
