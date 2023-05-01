@@ -153,8 +153,6 @@ jobs:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.1
-      with:
-          vs-version: '[16.4,16.5)'
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
